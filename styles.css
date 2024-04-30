@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap');
+body {
+    background-color: #2D3142;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+.sidebar {
+    background-color: #4F5D75;
+    position: fixed;
+    top: 7px;
+    bottom: 7px;
+    width: 200px;
+    border-radius: 30px;
+}
+.sidebar .logo {
+    width: 150px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.sidebar ul {
+    font-weight: 600;
+    list-style-type: none;
+}
+.sidebar ul li svg {
+    width: 25px;
+}
+.sidebar ul .home {
+    color: white;
+}
+.sidebar .profile {
+    width: 30px;
+}
+.sidebar .profile-li {
+    color: #BFC0C0;
+    position: fixed;
+    bottom: 6px;
+}
+.profile-list {
+    display: flex;
+    text-align: left;
+    align-items: left;
+}
+#profile-li-text {
+    margin-left: 32px;
+    margin-bottom: 8px;
+}
+.post {
+    background-color: #4F5D75;
+    width: 500px;
+    height: 150px;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+.posts {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.post #pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 6px;
+}
+#username {
+    font-size: 13px;
+    margin-left: 2px;
+    margin-bottom: 10px;
+}
+.user-info {
+    display: flex;
+}
+#content-text {
+    font-size: 13px;
+    font-weight: medium;
+    margin-left: 30px;
+}
+.content {
+    margin-left: 15px;
+}
+.button {
+    width: 25px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.buttons {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
