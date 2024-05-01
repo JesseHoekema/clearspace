@@ -4,9 +4,6 @@
       <meta charset="UTF-8">
       <title>DevLogin</title>
       <link rel="shortcut icon" href="devicon.png" type="image/x-icon">
-      <meta name="description" content="Devlogin - Login To This Site"/>
-      <meta name="url" content="https://pr">
-      <link rel="icon" href="devicon.png" type="image/x-icon" />
       <style>
         body {
             align-items: center;
@@ -52,6 +49,13 @@
             50% { color: blue; }
             100% { color: red; }
         }
+        #devicon {
+            transition: all 0.50s ease-in-out;
+            border-radius: 2px;
+        }
+        #devicon:hover {
+            border-radius: 50%;
+        }
       </style>
   </head>
   <body>
@@ -66,6 +70,7 @@
         <input type="password" id="invoerTekst" placeholder="Passcode...">
         <button onclick="checkHallo()">Enter</button>
       </div>
+      <img src="devicon.png" width="50px" style="position: fixed; bottom: 8px; right: 8px;" id="devicon" href="https://devlogin.jessehoekema.com">
       <script>
           function checkHallo() {
               const invoer = document.getElementById('invoerTekst').value.toLowerCase();
