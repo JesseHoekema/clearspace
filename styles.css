@@ -13,7 +13,7 @@ body {
     border-radius: 30px;
 }
 .sidebar .logo {
-    width: 150px;
+    width: 70px;
     margin-left: 25px;
     margin-top: 5px;
 }
@@ -21,7 +21,7 @@ body {
     font-weight: 600;
     list-style-type: none;
 }
-.sidebar ul li svg {
+.sidebar .homeicon {
     width: 25px;
 }
 .sidebar ul .home {
