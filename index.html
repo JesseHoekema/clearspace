@@ -72,19 +72,13 @@
         <h1>This Site Is In Dev</h1>
         <p>Choose a Option Below</p>
         <button onclick="redirect()">Homepage</button>
-        <button onclick="redirecttwee()">Loginpage</button>
+        <a href="/clearspace/login.html"><button>Loginpage</button></a>
       </div>
       <div id="login">
         <button onclick="back()">Back</button>
         <h1>Enter Passcode</h1>
         <input type="password" id="invoerTekst" placeholder="Passcode...">
         <button onclick="checkHallo()">Enter</button>
-      </div>
-      <div id="logintwee">
-        <button onclick="back()">Back</button>
-        <h1>Enter Passcode</h1>
-        <input type="password" id="invoerTekst" placeholder="Passcode...">
-        <button onclick="loginOk()">Enter</button>
       </div>
       <img src="/assets/devicon.png" width="50px" style="position: fixed; bottom: 8px; right: 8px;" id="devicon" href="https://devlogin.jessehoekema.com">
       <script>
@@ -93,15 +87,6 @@
   
               if (invoer === "clearspacedev") {
                   window.location.href = "/clearspace/homepage.html";
-              } else {
-                  alert("Incorrect Passcode");
-              }
-          }
-          function loginOk() {
-              const invoer = document.getElementById('invoerTekst').value.toLowerCase();
-  
-              if (invoer === "clearspacedev") {
-                  window.location.href = "/clearspace/login.html";
               } else {
                   alert("Incorrect Passcode");
               }
