@@ -8,7 +8,10 @@ export async function query(query, variables = {}) {
     const { data, errors } = await response.json();
 
     if (errors?.length > 0) {
-        throw new Error(`GraphQL query error: ${errors[0].message} ${errors[0].locations.map(l => `at line ${l.line}, column ${l.column}`).join(', ')}`);
+        //return error with multiple attributes
+        throw new Error(errors.map(({ message, locations, path }) => {
+            return `${message} at ${locations.map(({ line, column }) => `line ${line}, column ${column}`).join(', ')}, in ${path}`;
+        }).join('\n'));
     }
 
     return data;
