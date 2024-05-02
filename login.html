@@ -17,10 +17,11 @@
         const password = document.getElementById("password").value;
         query(
           `mutation {
-            loginUser(username: "${username}", password: "${password}") {
+            loginUser($username, $password) {
                     token
                 }
-            }`
+            }`,
+          { username, password }
         )
           .then((res) => {
             localStorage.setItem("token", res.loginUser.token);
