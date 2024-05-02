@@ -1,38 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twalk | Sign up</title> 
-    <link rel="stylesheet" href="sign-up.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twalk | Sign up</title>
+    <link rel="stylesheet" href="sign-up.css" />
+    <script type="module">
+      import { query } from "./scripts/graphql.js";
+      if (localStorage.getItem("token")) {
+        window.location.href = "/homepage.html";
+      }
+
+      document.getElementById("login-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
+
+        if (!email || !username || !password || !confirmPassword) {
+          alert("Please fill in all fields");
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match");
+          return;
+        }
+
+        query(
+          `mutation CreateUser($username: String!, $password: String!, $email: EmailAddress!) {
+              signupUser(username: $username, password: $password, email: $email) {
+                      token
+                  }
+              }`,
+          { username, password, email }
+        )
+          .then((res) => {
+            localStorage.setItem("token", res.signupUser.token);
+            window.location.href = "/homepage.html";
+          })
+          .catch((err) => {
+            alert(err.errors[0].message);
+          });
+      });
+    </script>
+  </head>
+  <body>
     <div>
-        <img src="assets/logos/twalk.png" class="logo">
-        <img src="/assets/logos/icon.png" class="mini-logo">
+      <img src="assets/logos/twalk.png" class="logo" />
+      <img src="/assets/logos/icon.png" class="mini-logo" />
     </div>
     <h1 class="sign-up">Sign up</h1>
-<div class="useroptions">
-    <form id="login-form">
-        <input type="email" id="email" placeholder="Email">
-        <br>
-        <input type="text" id="username" placeholder="username">
-        <br>
-        <input type="password" id="password" placeholder="password">
-        <br>
-        <input type="password" id="confirm-password" placeholder="confirm password">
-        <br>
+    <div class="useroptions">
+      <form id="login-form">
+        <input type="email" id="email" placeholder="Email" />
+        <br />
+        <input type="text" id="username" placeholder="username" />
+        <br />
+        <input type="password" id="password" placeholder="password" />
+        <br />
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="confirm password"
+        />
+        <br />
         <button id="loginbtn">sign up</button>
         <div class="tos">
-            <p>by signing up, you agree to the terms of service</p>
+          <p>by signing up, you agree to the terms of service</p>
         </div>
-    </form>
-    <br>
-    <div class="login">
+      </form>
+      <br />
+      <div class="login">
         <h2>already have an account?</h2>
         <a href="login.html"><button id="signupbtn">login</button></a>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>
 <!--v1.1-->
