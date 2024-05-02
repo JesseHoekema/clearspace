@@ -8,7 +8,7 @@
     <script type="module">
       import { query } from "./scripts/graphql.js";
       if (localStorage.getItem("token")) {
-        window.location.href = "/homepage.html";
+        window.location.href = "clearspace/homepage.html";
       }
 
       document.getElementById("login-form").addEventListener("submit", (e) => {
@@ -39,7 +39,7 @@
         )
           .then((res) => {
             localStorage.setItem("token", res.signupUser.token);
-            window.location.href = "/homepage.html";
+            window.location.href = "clearspace/homepage.html";
           })
           .catch((err) => {
             alert(err.errors[0].message);
