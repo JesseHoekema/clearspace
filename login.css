@@ -26,20 +26,29 @@ input {
     background-color: transparent;
     border-radius: 90px;
     height: 7vh;
-    width: 50vw;
+    width: calc(50vw - 56px);
     color: white;
     font-family: 'Montserrat';
     font-weight: bold;
     font-size: 1rem;
     margin-bottom: 6px;
-    background: url(assets/home.png) no-repeat scroll;
-    background-size: 40px;
-    padding-left: 6px;
+    padding-left: 56px;
 }
 
 input::placeholder {
     color: white;
-    padding-left: 5vw;
+}
+
+#username {
+    background: url(assets/login/account_circle.png) no-repeat scroll;
+    background-size: 40px;
+    background-position: 6px center;
+}
+
+#password {
+    background: url(assets/login/lock.png) no-repeat scroll;
+    background-size: 40px;
+    background-position: 6px center;
 }
 
 button {
