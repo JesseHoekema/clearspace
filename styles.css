@@ -13,7 +13,7 @@ body {
     border-radius: 30px;
 }
 .sidebar .logo {
-    width: 70px;
+    width: 70%;
     margin-left: 25px;
     margin-top: 5px;
 }
@@ -22,7 +22,7 @@ body {
     list-style-type: none;
 }
 .sidebar .homeicon {
-    width: 25px;
+    width: 30px;
 }
 .sidebar ul .home {
     color: white;
