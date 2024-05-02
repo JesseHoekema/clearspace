@@ -5,10 +5,13 @@ class GraphQLError extends Error {
     }
 }
 
-export async function query(query, variables = {}) {
+export async function query(query, variables = {}, authToken) {
     const response = await fetch('https://clearspace-back.up.railway.app/graphql', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authToken ? `Bearer ${authToken}` : null
+        },
         body: JSON.stringify({ query, variables })
     });
 
