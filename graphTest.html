@@ -1,0 +1,36 @@
+<script type="module">
+    import {query} from './scripts/graphql.js';
+
+
+function queryUser(username) {
+    const queryStr = `
+    query User($username: String!) {
+        user(username: $username) {
+            username
+            displayName
+            createdAt
+        }
+    }
+    `;
+
+    query(queryStr, {username}).then(data => {
+        document.getElementById('res').innerText = JSON.stringify(data);
+    }).catch(err => {
+        document.getElementById('res').innerText = err;
+    });
+}
+
+document.getElementById('query').addEventListener('click', () => {
+    const username = document.getElementById('username').value;
+    queryUser(username);
+});
+</script>
+
+<input type="text" id="username" placeholder="Username">
+<button 
+    id="query"
+>Query</button>
+
+<p id="res">
+   result here
+</p>
