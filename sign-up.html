@@ -39,7 +39,7 @@
         )
           .then((res) => {
             localStorage.setItem("token", res.signupUser.token);
-            window.location.href = "clearspace/homepage.html";
+            window.location.href = "homepage.html";
           })
           .catch((err) => {
             alert(err.errors[0].message);
