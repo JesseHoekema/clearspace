@@ -7,8 +7,9 @@ body {
 .sidebar {
     background-color: #4F5D75;
     position: fixed;
-    top: 7px;
-    bottom: 7px;
+    top: 25px;
+    bottom: 25px;
+    left: 25px;
     width: 200px;
     border-radius: 30px;
 }
@@ -17,33 +18,46 @@ body {
     margin-left: 25px;
     margin-top: 5px;
 }
-.sidebar ul {
-    font-weight: 600;
-    list-style-type: none;
-}
-.sidebar .homeicon {
-    width: 30px;
-}
-.sidebar ul .home {
+
+.home {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
     color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
-.sidebar .profile {
-    width: 30px;
+
+.sidebar .home img{
+    width: 35px;
 }
-.sidebar .profile-li {
+
+.profile {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
     color: #BFC0C0;
-    position: fixed;
+    font-size: 20px;
+    font-weight: bold;
     bottom: 6px;
 }
-.profile-list {
-    display: flex;
-    text-align: left;
-    align-items: left;
+
+.sidebar .profile img{
+    width: 35px;
 }
-#profile-li-text {
-    margin-left: 32px;
-    margin-bottom: 8px;
+
+.for-you {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #EF8354;
 }
+
 .post {
     background-color: #4F5D75;
     width: 500px;
