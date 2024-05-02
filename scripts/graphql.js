@@ -6,7 +6,7 @@ class GraphQLError extends Error {
 }
 
 export async function query(query, variables = {}) {
-    const response = await fetch('http://localhost:4000/graphql', {
+    const response = await fetch('https://clearspace-back.up.railway.app/graphql', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query, variables })
