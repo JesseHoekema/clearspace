@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap');
+
+body {
+    background-color: #2D3142;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sign-up {
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 4rem;
+}
+
+.useroptions {
+    width: 50vw;
+}
+
+input {
+    border: 1px solid #EF8354;
+    background-color: transparent;
+    border-radius: 90px;
+    height: 7vh;
+    width: calc(50vw - 56px);
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    padding-left: 56px;
+}
+
+input::placeholder {
+    color: white;
+}
+
+#email {
+    background: url(assets/login/mail.png) no-repeat scroll;
+    background-size: 40px;
+    background-position: 6px center;
+}
+
+#username {
+    background: url(assets/login/account_circle.png) no-repeat scroll;
+    background-size: 40px;
+    background-position: 6px center;
+}
+
+#password {
+    background: url(assets/login/lock.png) no-repeat scroll;
+    background-size: 40px;
+    background-position: 6px center;
+}
+
+#confirm-password {
+    background: url(assets/login/lock.png) no-repeat scroll;
+    background-size: 40px;
+    background-position: 6px center;
+}
+
+button {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#loginbtn {
+    border: 1px solid #EF8354;
+    background-color: #EF8354;
+    border-radius: 90px;
+    height: 7vh;
+    width: 50vw;
+    color: white;
+    font-size: 20px;
+}
+
+#signupbtn {
+    border: 1px solid #EF8354;
+    background-color: transparent;
+    border-radius: 90px;
+    height: 7vh;
+    width: 50vw;
+    color: white;
+    font-size: 20px;
+}
+.mini-logo {
+    display: none;
+    width: 100px;
+}
+
+.tos {
+    text-align: center;
+    color: #BFC0C0;
+    font-size: 10px;
+}
+
+.login {
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+
+
+@media screen and (orientation: portrait) {
+    .mini-logo {
+        display: block;
+    }
+    .logo {
+        display: none;
+    }
+}
