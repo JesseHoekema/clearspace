@@ -1,3 +1,3 @@
 function Opentwalk() {
-window.location.href = "sign-up.html";
+window.location.href = "login.html";
 }
