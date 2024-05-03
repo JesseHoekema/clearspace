@@ -1,114 +1,27 @@
-<!-- dont copy! -->
 <!DOCTYPE html>
   <html lang="nl">
   <head>
       <meta charset="UTF-8">
-      <title>DevLogin</title>
+      <title>Twalk | The place for tech</title>
       <link rel="shortcut icon" href="devicon.png" type="image/x-icon">
-      <meta property="og:title" content="Devlogin - Login To This Site" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://projects.jessehoekema.com/clearspace" />
-      <meta property="og:image" content="https://projects.jessehoekema.com/clearspace/devicon.png" />
-      <meta property="og:description" content="Login To This Site To Get All The Site Files" />
-      <style>
-        body {
-            align-items: center;
-            text-align: center;
-            background-color: black;
-            color: white;
-            font-family: sans-serif;
-        }
-        #login {
-            display: none;
-        }
-        #logintwee {
-          display: none;
-        }
-        button {
-            border-radius: 10px;
-            background-color: transparent;
-            color: white;
-            border: 1px solid orange;
-            padding: 10px;
-            transition: all 0.30s ease-in-out;
-        }
-        button:hover {
-            background-color: orange;
-        }
-        input {
-            border: 1px solid orange;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: transparent;
-            transition: all 0.30s ease-in-out;
-        }
-        input:focus {
-            background-color: orange;
-            border: 1px solid orange;
-        }
-        p {
-            animation: color-change 10s infinite;
-        }
-        h1 {
-            animation: color-change 10s infinite;
-        }
-
-        @keyframes color-change {
-            0% { color: red; }
-            50% { color: blue; }
-            100% { color: red; }
-        }
-        #devicon {
-            transition: all 0.50s ease-in-out;
-            border-radius: 2px;
-        }
-        #devicon:hover {
-            border-radius: 50%;
-        }
-      </style>
+      <link rel="stylesheet" href="styles/index.css">
   </head>
   <body>
-      <div id="menu">
-        <h1>This Site Is In Dev</h1>
-        <p>Choose a Option Below</p>
-        <button onclick="redirecttwee()">Homepage</button>
-        <a href="/clearspace/login.html"><button>Loginpage</button></a>
-      </div>
-      <div id="login">
-        <button onclick="back()">Back</button>
-        <h1>Enter Passcode</h1>
-        <input type="password" id="invoerTekst" placeholder="Passcode...">
-        <button onclick="checkHallo()">Enter</button>
-      </div>
-      <img src="https://projects.jessehoekema.com/clearspace/assets/devicon.png" width="50px" style="position: fixed; bottom: 8px; right: 8px;" id="devicon" href="https://devlogin.jessehoekema.com">
-      <script>
-          function checkHallo() {
-              const invoer = document.getElementById('invoerTekst').value.toLowerCase();
-  
-              if (invoer === "clearspacedev") {
-                  window.location.href = "/clearspace/homepage.html";
-              } else {
-                  alert("Incorrect Passcode");
-              }
-          }
-          function redirecttwee() {
-            login = document.getElementById("login");
-            menu = document.getElementById("menu");
-            menu.style.display = "none"
-            login.style.display = "block"
-          }
-          function redirecttwee() {
-            logintwee = document.getElementById("login");
-            menu = document.getElementById("menu");
-            menu.style.display = "none"
-            logintwee.style.display = "block"
-          }
-          function back() {
-            login = document.getElementById("login");
-            menu = document.getElementById("menu");
-            menu.style.display = "block"
-            login.style.display = "none"
-          }
-      </script>
+    <div class="section1">
+        <div class="header">
+            <div class="logo">
+                <img src="assets/logos/twalk.png">
+            </div>
+            <div class="right">
+                <a href="tos.html"><p>Terms of service</p></a>
+                <p>Support</p>
+                <button class="headeropen" onclick="Opentwalk()">Open Twalk</button>
+            </div>
+        </div>
+
+        <img src="assets/logos/twalk2x.png" class="landinglogo">
+        <button class="open" onclick="Opentwalk()">Open Twalk in your browser</button>
+    </div>
   </body>
+  <script src="scripts/index.js"></script>
   </html>
