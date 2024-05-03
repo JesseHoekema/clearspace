@@ -48,6 +48,91 @@ body {
     width: 35px;
 }
 
+.sidebarright {
+    position: fixed;
+    top: 25px;
+    bottom: 25px;
+    right: 25px;
+    width: 340px;
+    border-radius: 30px;
+}
+
+.searchbar #search {
+    border: none;
+    background-color: #4F5D75;
+    border-radius: 90px;
+    height: 60px;
+    width: calc(340px - 56px);
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    padding-left: 56px; 
+}
+
+input::placeholder {
+    color: white;
+}
+
+#search {
+    background: url(/assets/search.png) no-repeat scroll;
+    background-size: 35px;
+    background-position: 10px center;
+}
+
+.PTO {
+    background-color: rgba(79, 93, 117, 0.2);
+    position: fixed;
+    right: 25px;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.PTO h2 {
+    color: white;
+    font-weight: bold;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    background-color: rgba(79, 93, 117, 0.2);
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.PTO img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.person p {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+}
+
+.person button {
+    width: 100px;
+    margin-left: auto;
+    border-radius: 15px;
+    height: 36px;
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    color: white;
+    font-family: 'montserrat';
+    font-weight: bold;
+}
+
+.person .followed {
+    background-color: #EF8354;
+}
+
 .for-you {
     text-align: center;
     font-weight: bold;
@@ -72,8 +157,7 @@ body {
 }
 
 .posts {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     width: 30%;
 }
 
