@@ -40,14 +40,14 @@ input::placeholder {
 }
 
 #username {
-    background: url('assets/login/account_circle.png') no-repeat scroll;
-    background-size: 40px;
+    background: url(/assets/login/account_circle.png) no-repeat scroll;
+    background-size: 35px;
     background-position: 6px center;
 }
 
 #password {
-    background: url('assets/login/lock.png') no-repeat scroll;
-    background-size: 40px;
+    background: url(/assets/login/lock.png) no-repeat scroll;
+    background-size: 35px;
     background-position: 6px center;
 }
 
