@@ -20,7 +20,6 @@ body {
 }
 
 .home {
-    position: absolute;
     display: flex;
     align-items: center;
     margin-left: 20px;
@@ -31,6 +30,22 @@ body {
 
 .sidebar .home img{
     width: 35px;
+}
+
+.newpostbutton {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    border-radius: 90px;
+    height: 60px;
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    color: white;
+    font-size: 20px;
+    font-family: 'montserrat';
+    font-weight: bold;
 }
 
 .profile {
