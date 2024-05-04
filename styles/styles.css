@@ -3,7 +3,23 @@ body {
     background-color: #2D3142;
     font-family: "Montserrat", sans-serif;
     font-weight: 600;
+    margin: 0;
+    padding: 0;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background: #2d3142;
+  }
+
+::-webkit-scrollbar-thumb {
+    background-color: #4f5d75;
+    border-radius: 90px;
+  }
+
 .sidebar {
     background-color: #4F5D75;
     position: fixed;
@@ -149,13 +165,20 @@ input::placeholder {
 }
 
 .for-you {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-weight: bold;
     color: white;
     text-decoration: underline;
     text-underline-offset: 8px;
     text-decoration-thickness: 3px;
     text-decoration-color: #EF8354;
+}
+
+.for-you img {
+    width: 60px;
+    height: 60px;
 }
 
 .post {
@@ -211,3 +234,46 @@ input::placeholder {
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.for-you img {
+    display: none;
+}
+
+.mobile-sidebar {
+    display: none;
+}
+
+@media (orientation: portrait) {
+    .sidebar, .sidebarright {
+        display: none;
+    }
+
+    .post {
+        width: 80vw;
+    }
+
+    .for-you img {
+        display: block;
+    }
+
+    .for-you p {
+        display: none;
+    }
+
+    .mobile-sidebar {
+        background-color: #2D3142;
+        height: 10vh;
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-sidebar img {
+        width: 40px;
+        padding: 10px;
+    }
+  }
