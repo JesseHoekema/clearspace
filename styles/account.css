@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:wght@300&display=swap');
+body {
+    background-color: #2D3142;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background: #2d3142;
+  }
+
+::-webkit-scrollbar-thumb {
+    background-color: #4f5d75;
+    border-radius: 90px;
+  }
+
+.sidebar {
+    background-color: #4F5D75;
+    position: fixed;
+    top: 25px;
+    bottom: 25px;
+    left: 25px;
+    width: 200px;
+    border-radius: 30px;
+}
+.sidebar .logo {
+    width: 70%;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sidebar .home img{
+    width: 35px;
+}
+
+.newpostbutton {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    border-radius: 90px;
+    height: 60px;
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    color: white;
+    font-size: 20px;
+    font-family: 'montserrat';
+    font-weight: bold;
+}
+
+.profile {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    color: #BFC0C0;
+    font-size: 20px;
+    font-weight: bold;
+    bottom: 6px;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #EF8354
+}
+
+.sidebar .profile img{
+    width: 35px;
+}
+
+.sidebarright {
+    position: fixed;
+    top: 25px;
+    bottom: 25px;
+    right: 25px;
+    width: 340px;
+    border-radius: 30px;
+}
+
+.searchbar #search {
+    border: none;
+    background-color: #4F5D75;
+    border-radius: 90px;
+    height: 60px;
+    width: calc(340px - 56px);
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    padding-left: 56px; 
+}
+
+input::placeholder {
+    color: white;
+}
+
+#search {
+    background: url(/assets/search.png) no-repeat scroll;
+    background-size: 35px;
+    background-position: 10px center;
+}
+
+.PTO {
+    background-color: rgba(79, 93, 117, 0.2);
+    position: fixed;
+    right: 25px;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.PTO h2 {
+    color: white;
+    font-weight: bold;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    background-color: rgba(79, 93, 117, 0.2);
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.PTO img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.person p {
+    margin: 0;
+    color: white;
+    font-weight: bold;
+}
+
+.person button {
+    width: 100px;
+    margin-left: auto;
+    border-radius: 15px;
+    height: 36px;
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    color: white;
+    font-family: 'montserrat';
+    font-weight: bold;
+}
+
+.person .followed {
+    background-color: #EF8354;
+}
+
+.for-you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: #EF8354;
+}
+
+.for-you img {
+    width: 60px;
+    height: 60px;
+}
+
+.post {
+    background-color: #4F5D75;
+    width: 780px;
+    height: auto;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post #pfp {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+#username {
+    font-size: 13px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#content-text {
+    font-size: 13px;
+    font-weight: medium;
+    margin: 0;
+}
+
+.content {
+    margin-right: 10px;
+}
+
+.button {
+    width: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.for-you img {
+    display: none;
+}
+
+.mobile-sidebar {
+    display: none;
+}
+
+.account-info {
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #4F5D75;
+
+}
+
+.banner {
+    background-color: red;
+    height: 168px;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.account-info #profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 120px;
+    margin-left: 20px;
+    border: 1px solid red;
+}
+.basic-info {
+    display: flex;
+    color: white;
+}
+.basic-info h1 {
+    font-size: 20px;
+    margin-left: 15px;
+    margin-top: 55px;
+    margin-bottom: 0px;
+}
+.other-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.image-text {
+    display: flex;
+    margin: 5px;
+    color: white;
+}
+.image-text img {
+    margin-right: 3px;
+}
+.other-info p {
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+.followers {
+    display: flex;
+}
+.followers p {
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+.followers #number {
+    color: red;
+}
+.text-info {
+    margin-left: 15px;
+}
+.icons {
+    margin-left: 9px;
+}
+#postmore {
+    color: #4F5D75;
+    margin: 0;
+    font-size: 15;
+}
+
+@media (orientation: portrait) {
+    .sidebar, .sidebarright {
+        display: none;
+    }
+
+    .post {
+        width: 80vw;
+    }
+
+    .for-you img {
+        display: block;
+    }
+
+    .for-you p {
+        display: none;
+    }
+
+    .mobile-sidebar {
+        background-color: #2D3142;
+        height: 10vh;
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-sidebar img {
+        width: 40px;
+        padding: 10px;
+    }
+    .account-info {
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 800px;
+        height: 500px;
+        margin: auto;
+        border-radius: 20px;
+        background-color: #4F5D75;
+        margin-top: 15px;
+    }
+    .post {
+        background-color: #4F5D75;
+        width: 780px;
+        height: auto;
+        border-radius: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+  }
+
+  @media screen and (max-width: 780px) {
+    .post {
+        max-width: 100%; /* Als de schermgrootte kleiner is dan 780px, neemt de div de volledige breedte van het scherm in */
+    }
+    .account-info {
+        max-width: 100%;
+    }
+}
