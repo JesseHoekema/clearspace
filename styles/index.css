@@ -88,4 +88,50 @@ button {
     margin-top: 10vh;
     padding: 18px;
 }
+.small-logo {
+    display: none;
+}
 
+@media (orientation: portrait) { 
+    .logo {
+        display: none;
+    }
+    .small-logo {
+        display: block;
+    }
+    .header p {
+        font-size: 30px;
+        margin-right: 25px;
+        color: white;
+    }
+    .headeropen {
+        border: 1px solid #EF8354;
+        background-color: rgba(79, 93, 117, 0.2);
+        border-radius: 90px;
+        height: 4vh;
+        width: auto;
+        color: white;
+        font-size: 20px;
+        margin-left: auto;
+        padding: 18px;
+        margin-top: 5px;
+    }
+    .header {
+        width: 90vw;
+        height: 7vh;
+        background-color: #2D3142;
+        position: absolute;
+        top: 10px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 30px;
+    }
+    .header .right {
+        display: flex;
+        margin-left: auto;
+    }
+    #end  {
+        margin-right: 10vw;
+    }
+}
