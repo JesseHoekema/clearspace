@@ -1,11 +1,20 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+    function navigateTo(url) {
+      // Verwijder .html-extensie uit de URL
+      url = url.replace('.html', '');
 
-function App() {
-  return (
-    <Router>
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      {/* Voeg meer routes toe voor andere pagina's */}
-    </Router>
-  );
-}
+      // Navigeer naar de nieuwe URL zonder de pagina opnieuw te laden
+      history.pushState({}, null, url);
+
+      // Laad inhoud van de nieuwe URL
+      loadContent(url);
+    }
+
+    function loadContent(url) {
+      // Simuleer het laden van inhoud (vervang dit door je eigen code om inhoud te laden)
+      document.getElementById('content').innerHTML = `<p>Loading content for ${url}...</p>`;
+    }
+
+    // Laad de inhoud voor de huidige URL bij het laden van de pagina
+    window.onload = function() {
+      loadContent(window.location.pathname);
+    };
