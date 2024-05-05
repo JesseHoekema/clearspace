@@ -5,7 +5,8 @@ class GraphQLError extends Error {
     }
 }
 
-export async function query(query, variables = {}, authToken) {
+export async function query(query, variables = {}) {
+    const authToken = localStorage.getItem("token")
     const response = await fetch('https://clearspace-back.up.railway.app/graphql', {
         method: 'POST',
         headers: {
