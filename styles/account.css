@@ -191,7 +191,6 @@ input::placeholder {
     height: auto;
     border-radius: 30px;
     margin-top: 10px;
-    margin-bottom: 10px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -253,7 +252,6 @@ input::placeholder {
     margin: auto;
     border-radius: 20px;
     background-color: #4F5D75;
-
 }
 
 .banner {
@@ -275,6 +273,12 @@ input::placeholder {
     display: flex;
     color: white;
 }
+
+.badge {
+    width: 20px;
+    height: 20px;
+}
+
 .basic-info h1 {
     font-size: 20px;
     margin-left: 15px;
@@ -306,7 +310,7 @@ input::placeholder {
     margin-bottom: 2px;
 }
 .followers #number {
-    color: red;
+    color: #EF8354;
 }
 .text-info {
     margin-left: 15px;
@@ -356,7 +360,7 @@ input::placeholder {
     .account-info {
         margin-left: 5px;
         margin-right: 5px;
-        width: 800px;
+        width: 80vw;
         height: 500px;
         margin: auto;
         border-radius: 20px;
@@ -365,7 +369,7 @@ input::placeholder {
     }
     .post {
         background-color: #4F5D75;
-        width: 780px;
+        width: 76vw;
         height: auto;
         border-radius: 30px;
         margin-top: 10px;
@@ -377,12 +381,3 @@ input::placeholder {
     }
     
   }
-
-  @media screen and (max-width: 780px) {
-    .post {
-        max-width: 100%; /* Als de schermgrootte kleiner is dan 780px, neemt de div de volledige breedte van het scherm in */
-    }
-    .account-info {
-        max-width: 100%;
-    }
-}

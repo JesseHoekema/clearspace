@@ -1,142 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Twalk - Feed</title>
-    <link rel="icon" type="image/x-icon" href="/assets/logos/icon.png">
-    <link rel="stylesheet" href="styles/account.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="/assets/logos/icon.png" />
+    <link rel="stylesheet" href="styles/account.css" />
+    <script type="module">
+      import { query } from "./scripts/graphql.js";
+      import { setBanner } from "./scripts/account.js";
+      const searchParams = new URLSearchParams(window.location.search);
+      const us = searchParams.get("u");
+      if (!localStorage.getItem("token")) {
+        window.location.href = "login.html";
+      }
+
+      const res = await query(
+        `query Profile($username: String) {
+  user(username: $username) {
+    createdAt
+    displayName
+    followers
+    following
+    profile {
+      profilePicture
+      bannerPicture
+      bio
+      birthday
+      device
+      website
+    }
+  }
+
+  postsByUser(username: $username) {
+    id
+    content
+  }
+}
+`,
+        {
+          username: us,
+        }
+      );
+
+      if (res) {
+        document.getElementById("displayname").innerText = res.user.displayName;
+        const followers = document.querySelector(
+          "[data-numberType='followers']"
+        );
+        followers.innerText = res.user.followers;
+        const following = document.querySelector(
+          "[data-numberType='following']"
+        );
+        following.innerText = res.user.following;
+
+        document.getElementById("bio").innerText =
+          res.user.profile.bio ?? "User has no bio";
+
+        document.getElementById("website").innerText =
+          res.user.profile.website ?? "User has no website";
+
+        document.getElementById("birthday").innerText =
+          res.user.profile.birthday ?? "User has no birthday";
+
+        document.getElementById("joined").innerText = new Date(
+          res.user.createdAt
+        ).toLocaleDateString();
+
+        document.getElementById("device").innerText =
+          res.user.profile.device ?? "User has no device";
+
+        document.getElementById("profile-picture").src =
+          res.user.profile.profilePicture ?? "assets/pfpdefault.png";
+
+        if (res.user.profile.bannerPicture) {
+          document.getElementById("profile-picture").src =
+            res.user.profile.bannerPicture;
+        } else {
+          setBanner(res.user.displayName);
+        }
+
+        //add posts
+        //TODO: cleanup this mess
+        res.postsByUser.forEach((post) => {
+          const postDiv = document.createElement("div");
+          postDiv.classList.add("post");
+          const userInfo = document.createElement("div");
+          userInfo.classList.add("user-info");
+          const userPic = document.createElement("img");
+          userPic.src =
+            res.user.profile.profilePicture ?? "assets/pfpdefault.png";
+          userPic.id = "pfp";
+          userInfo.appendChild(userPic);
+          const username = document.createElement("p");
+          username.id = "username";
+          username.innerText = res.user.displayName;
+          userInfo.appendChild(username);
+          postDiv.appendChild(userInfo);
+          const content = document.createElement("div");
+          content.classList.add("content");
+          content.innerText = post.content;
+          content.id = "content-text";
+          postDiv.appendChild(content);
+          const buttons = document.createElement("div");
+          buttons.classList.add("buttons");
+          const like = document.createElement("img");
+          like.classList.add("button");
+          like.src = "assets/like.png";
+          buttons.appendChild(like);
+          const comment = document.createElement("img");
+          comment.classList.add("button");
+          comment.src = "assets/comment.png";
+          buttons.appendChild(comment);
+          postDiv.appendChild(buttons);
+          document.getElementById("posts").appendChild(postDiv);
+        });
+      }
+    </script>
+  </head>
+  <body>
     <div class="sidebar">
-        <img src="assets/logos/twalksmall.png" class="logo">
-        <a href="homepage.html" style="text-decoration: none;">
+      <img src="assets/logos/twalksmall.png" class="logo" />
+      <a href="homepage.html" style="text-decoration: none">
         <div class="home">
-            <img src="assets/home.png" class="home-image">
-            <p class="home-text">Home</p>
+          <img src="assets/home.png" class="home-image" />
+          <p class="home-text">Home</p>
         </div>
-        </a>
+      </a>
 
-        <div class="postbutton">
-            <button class="newpostbutton">New Post</button>
-        </div>
+      <div class="postbutton">
+        <button class="newpostbutton">New Post</button>
+      </div>
 
-        <div class="profile">
-            <img src="assets/profile.png" class="profile-image">
-            <p class="profile-text">Profile</p>
-        </div>
+      <div class="profile">
+        <img src="assets/profile.png" class="profile-image" />
+        <p class="profile-text">Profile</p>
+      </div>
     </div>
 
     <div class="sidebarright">
-        <div class="searchbar">
-            <input type="text" id="search" placeholder="Search" />
-        </div>
+      <div class="searchbar">
+        <input type="text" id="search" placeholder="Search" />
+      </div>
 
-        <div class="PTO">
-            <h2>People to follow</h2>
-            <div class="person" id="p1">
-                <img src="assets/pfp1.png">
-                <p>maksieku</p>
-                <button class="follow">Follow</button>
-            </div>
-            <div class="person" id="p2">
-                <img src="assets/pfp2.png">
-                <p>Jessi_Flessi</p>
-                <button class="followed">Followed</button>
-            </div>
+      <div class="PTO">
+        <h2>People to follow</h2>
+        <div class="person" id="p1">
+          <img src="assets/pfp1.png" />
+          <p>maksieku</p>
+          <button class="follow">Follow</button>
         </div>
+        <div class="person" id="p2">
+          <img src="assets/pfp2.png" />
+          <p>Jessi_Flessi</p>
+          <button class="followed">Followed</button>
+        </div>
+      </div>
     </div>
 
     <div class="mobile-sidebar">
+      <a href="homepage.html" style="text-decoration: none">
         <div class="home-m">
-            <img src="assets/home.png" class="home-image">
+          <img src="assets/home.png" class="home-image" />
         </div>
+      </a>
 
-        <div class="search-m">
-            <img src="assets/search.png" class="search-image">
-        </div>
+      <div class="search-m">
+        <img src="assets/search.png" class="search-image" />
+      </div>
 
-        <div class="profile-m">
-            <img src="assets/profile.png" class="profile-image">
-        </div>
+      <div class="profile-m">
+        <img src="assets/profile.png" class="profile-image" />
+      </div>
     </div>
 
     <div class="for-you">
-        <p>For you</p>
-        <br>
-        <img src="assets/logos/icon.png">
-
+      <br />
+      <img src="assets/logos/icon.png" />
     </div>
 
     <div class="account-info">
-        <div class="banner">
-            <img id="profile-picture" src="assets/pfp2.png">
+      <div class="banner">
+        <img id="profile-picture" />
+      </div>
+      <div class="info">
+        <div class="basic-info">
+          <h1 id="displayname">
+            <!-- <img src="assets/ownerbadge.png" class="badge" /> -->
+          </h1>
         </div>
-        <div class="info">
-            <div class="basic-info">
-                <h1>Jessi Flessi</h1>
+        <div class="other-info">
+          <div class="text-info">
+            <p id="bio"></p>
+            <div class="followers">
+              <p id="number" data-numberType="followers">0-</p>
+              <p>Followers</p>
+              <p id="number" data-numberType="following">0</p>
+              <p>Following</p>
             </div>
-            <div class="other-info">
-                <div class="text-info">
-                <p>Hello Im Jessi,  Im A Developer!</p>
-                <div class="followers">
-                    <p id="number">12</p>
-                    <p>Followers</p>
-                    <p id="number">21</p>
-                    <p>Following</p>
-                </div>
+          </div>
+          <div class="icons">
+            <div class="image-text">
+              <img src="assets/website.png" width="25px" height="25px" />
+              <span id="website"></span>
             </div>
-            <div class="icons">
-                <div class="image-text">
-                    <img src="assets/website.png" width="25px" height="25px">
-                     jessehoekema.com
-                </div>
-                <div class="image-text">
-                    <img src="assets/cadeu.png" width="24px" height="24px">
-                    25 May  
-                </div>
-                <div class="image-text">
-                    <img src="assets/calendar.png" width="24px" height="24px">
-                     Joined at 30 april 2024          
-                </div>
-                <div class="image-text">
-                    <img src="assets/phone.png" width="24px" height="24px">
-                    Iphone 12      
-                </div>
+            <div class="image-text">
+              <img src="assets/cadeu.png" width="24px" height="24px" />
+              <span id="birthday"></span>
             </div>
+            <div class="image-text">
+              <img src="assets/calendar.png" width="24px" height="24px" />
+              <span id="joined"></span>
             </div>
+            <div class="image-text">
+              <img src="assets/phone.png" width="24px" height="24px" />
+              <span id="device"></span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="posts">
-        <div class="post">
-            <div class="user-info">
-                <img src="assets/pfp2.png" id="pfp">
-                <p id="username">Jessi Flessi</p>
-            </div>
-            <div class="content">
-                <p id="content-text">JHOS 4 Coming Soon. More info on jessehoekema.com</p>
-            </div>
-            <div class="buttons">
-                <img src="assets/like.png" class="button">
-                <img src="assets/comment.png" class="button">
-            </div>
+    <div class="posts" id="posts">
+      <!-- <div class="post">
+        <div class="user-info">
+          <img src="assets/pfp2.png" id="pfp" />
+          <p id="username">Jessi Flessi</p>
         </div>
-        <div class="post">
-            <div class="user-info">
-                <img src="assets/pfp2.png" id="pfp">
-                <p id="username">Jessi Flessi</p>
-            </div>
-            <div class="content">
-                <p id="content-text">Building JHBROWSER now!</p>
-            </div>
-            <div class="buttons">
-                <img src="assets/like.png" class="button">
-                <img src="assets/comment.png" class="button">
-            </div>
+        <div class="content">
+          <p id="content-text">
+            JHOS 4 Coming Soon. More info on jessehoekema.com
+          </p>
         </div>
-        <p id="postmore">A bit empty isn’t it? this user should post more.</p>
+        <div class="buttons">
+          <img src="assets/like.png" class="button" />
+          <img src="assets/comment.png" class="button" />
+        </div>
+      </div>
+      <div class="post">
+        <div class="user-info">
+          <img src="assets/pfp2.png" id="pfp" />
+          <p id="username">Jessi Flessi</p>
+        </div>
+        <div class="content">
+          <p id="content-text">Building JHBROWSER now!</p>
+        </div>
+        <div class="buttons">
+          <img src="assets/like.png" class="button" />
+          <img src="assets/comment.png" class="button" />
+        </div>
+      </div> -->
+      <p id="postmore">A bit empty isn’t it? this user should post more.</p>
     </div>
-    
-</body>
-<script src="scripts/homepage.js"></script>
+  </body>
+  <script src="scripts/removeextension.js"></script>
 </html>

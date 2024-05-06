@@ -67,6 +67,10 @@ button {
     font-size: 20px;
 }
 
+#loginbtn:hover {
+    cursor: pointer;
+}
+
 #signupbtn {
     border: 1px solid #EF8354;
     background-color: transparent;

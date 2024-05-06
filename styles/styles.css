@@ -83,8 +83,8 @@ body {
     position: fixed;
     top: 25px;
     bottom: 25px;
-    right: 25px;
-    width: 340px;
+    right: 60px;
+    width: 25vw;
     border-radius: 30px;
 }
 
@@ -93,7 +93,7 @@ body {
     background-color: #4F5D75;
     border-radius: 90px;
     height: 60px;
-    width: calc(340px - 56px);
+    width: calc(27vw - 56px);
     color: white;
     font-family: 'Montserrat';
     font-weight: bold;
@@ -116,7 +116,7 @@ input::placeholder {
     background-color: rgba(79, 93, 117, 0.2);
     position: fixed;
     right: 25px;
-    width: 300px;
+    width: 25vw;
     margin-top: 40px;
     border-radius: 30px;
     padding: 20px;
@@ -177,6 +177,7 @@ input::placeholder {
 }
 
 .for-you img {
+    padding-top: 10px;
     width: 60px;
     height: 60px;
 }
