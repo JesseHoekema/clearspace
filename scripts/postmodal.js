@@ -1,6 +1,7 @@
   // JavaScript code
   // Get the modal element
   var modal = document.getElementById("modal");
+  var targetDiv = document.getElementById("blur");
 
   // Get the button that opens the modal
   var btn = document.getElementById("openModalBtn");

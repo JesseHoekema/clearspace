@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/postmodal.css">
 </head>
 <body>
+    <div id="blur">
     <div class="sidebar">
         <img src="assets/logos/twalksmall.png" class="logo">
         <a href="homepage.html" style="text-decoration: none;">
@@ -95,12 +96,20 @@
             </div>
         </div>
     </div>
-    <div id="modal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Dit is een modal popup!</p>
-        </div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="assets/pfp2.png" width="50px" height="50px" id="modalpfp">
+      <input type="text" id="postinput" placeholder="what do you want to share?">
+      <br>
+      <div id="posticons">
+      <img src="assets/image.png" alt="image">
+      <img src="assets/gifbox.png" alt="image">
       </div>
+      <button id="postbutton">Post</button>
+    </div>
+  </div>
 </body>
 <script src="scripts/homepage.js"></script>
 <script src="scripts/postmodal.js"></script>
