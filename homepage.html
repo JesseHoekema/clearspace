@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Twalk - Feed</title>
-    <link rel="icon" type="image/x-icon" href="assets/logos/icon.png">
+    <link rel="icon" type="image/x-icon" href="/assets/logos/icon.png">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/loader.css">
 </head>
 <body>
-
     <div class="loader">
         <img src="assets/logos/star.png">
     </div>
-
+    <div id="blur">
     <div class="sidebar">
         <img src="assets/logos/twalksmall.png" class="logo">
         <a href="homepage.html" style="text-decoration: none;">
@@ -24,7 +22,7 @@
         </div>
     </a>
         <div class="postbutton">
-            <button class="newpostbutton">New Post</button>
+            <button class="newpostbutton" id="openModalBtn">New Post</button>
         </div>
         <a href="account.html">
         <div class="profile">            
@@ -63,11 +61,9 @@
             <img src="assets/search.png" class="search-image">
         </div>
 
-        <a href="account.html" style="text-decoration: none;">
         <div class="profile-m">
             <img src="assets/profile.png" class="profile-image">
         </div>
-        </a>
     </div>
 
     <div class="for-you">
@@ -103,8 +99,23 @@
             </div>
         </div>
     </div>
+</div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="assets/pfp2.png" width="50px" height="50px" id="modalpfp">
+      <input type="text" id="postinput" placeholder="what do you want to share?">
+      <br>
+      <div id="posticons">
+      <img src="assets/image.png" alt="image">
+      <img src="assets/gifbox.png" alt="image">
+      </div>
+      <button id="postbutton">Post</button>
+    </div>
+  </div>
 </body>
 <script src="scripts/homepage.js"></script>
+<script src="scripts/postmodal.js"></script>
 <script src="scripts/loader.js"></script>
 <script src="scripts/removeextension.js"></script>
 </html>
