@@ -6,6 +6,7 @@
     <title>Twalk - Feed</title>
     <link rel="icon" type="image/x-icon" href="/assets/logos/icon.png" />
     <link rel="stylesheet" href="styles/account.css" />
+    <link rel="stylesheet" href="styles/editusermodal.css" />
     <script type="module">
       import { query } from "./scripts/graphql.js";
       import { setBanner } from "./scripts/account.js";
@@ -188,6 +189,11 @@
           <h1 id="displayname">
             <!-- <img src="assets/ownerbadge.png" class="badge" /> -->
           </h1>
+        <div class="actions-container">
+          <button class="edituser" id="edituser"><img src="assets/edit.png"></button>
+          <button class="followbutton">follow</button>
+        </div>
+
         </div>
         <div class="other-info">
           <div class="text-info">
@@ -220,6 +226,27 @@
         </div>
       </div>
     </div>
+
+    <div id="editmodal" class="editmodal">
+      <div class="editmodal-content">
+          <div class="topcenter">
+            <span class="close">&times;</span>
+            <div class="edit-banner">
+              <img src="assets/pfp2.png" width="100px" height="100px" id="modalpfp">
+            </div>
+              <input type="text" class="infoinput" id="usernameinput" placeholder="Username" maxlength="15"></input>
+              <textarea type="text" class="infoinput" id="bioinput" placeholder="bio" maxlength="300"></textarea>
+              <input type="text" class="infoinput" id="websiteinput" placeholder="website"></input>
+              <input type="date" class="infoinput" id="birthday" placeholder="birthday"></input>
+              <input type="text" class="infoinput" id="phoneinput" placeholder="phone"></input>
+          </div>
+        <br><br><br><br>
+      <div class="bottomcenter">
+        <button id="savebutton">save</button>
+      </div>
+      </div>
+    </div>
+
     <div class="posts" id="posts">
       <!-- <div class="post">
         <div class="user-info">
@@ -253,4 +280,5 @@
     </div>
   </body>
   <script src="scripts/removeextension.js"></script>
+  <script src="scripts/editusermodal.js"></script>
 </html>

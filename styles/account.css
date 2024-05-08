@@ -324,6 +324,43 @@ input::placeholder {
     font-size: 15;
 }
 
+.actions-container {
+    margin-left: auto;
+    padding-right: 10px;
+    padding-top: 10px;
+    display: flex;
+}
+
+.followbutton {
+    width: 100px;
+    border-radius: 15px;
+    height: 46px;
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    color: white;
+    font-family: 'montserrat';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.edituser {
+    width: 46px;
+    border-radius: 15px;
+    height: 46px;
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.edituser img {
+    width: 30px;
+    height: auto;
+}
+
 @media (orientation: portrait) {
     .sidebar, .sidebarright {
         display: none;
