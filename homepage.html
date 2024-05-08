@@ -1,135 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Twalk - Feed</title>
-    <link rel="icon" type="image/x-icon" href="/assets/logos/icon.png">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/postmodal.css">
-    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="icon" type="image/x-icon" href="/assets/logos/icon.png" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/postmodal.css" />
+    <link rel="stylesheet" href="styles/loader.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-<body>
+    <script type="module">
+      import { query } from "./scripts/graphql.js";
+
+      async function post() {
+        const postInput = document.getElementById("postinput");
+
+        const response = await query(
+          `mutation($content: String!) {
+                  postMessage(content: $content) {
+                      id
+                      content
+                  }
+              }`,
+          {
+            content: postInput.value,
+          }
+        )
+          .catch((err) => {
+            console.log(err);
+            alert(err.message);
+          })
+          .finally((d) => {
+            if (!d?.postMessage?.id) return;
+            postInput.value = "";
+            //todo: add posted thing
+            alert("Posted");
+          });
+      }
+
+      document.getElementById("postbutton").addEventListener("click", post);
+    </script>
+  </head>
+  <body>
     <div class="loader">
-        <img src="assets/logos/star.png">
+      <img src="assets/logos/star.png" />
     </div>
     <div id="blur">
-    <div class="sidebar">
-        <img src="assets/logos/twalksmall.png" class="logo">
-        <a href="homepage.html" style="text-decoration: none;">
-        <div class="home">
-            <img src="assets/home.png" class="home-image">
+      <div class="sidebar">
+        <img src="assets/logos/twalksmall.png" class="logo" />
+        <a href="homepage.html" style="text-decoration: none">
+          <div class="home">
+            <img src="assets/home.png" class="home-image" />
             <p class="home-text">Home</p>
-        </div>
-    </a>
+          </div>
+        </a>
         <div class="postbutton">
-            <button class="newpostbutton" id="openModalBtn">New Post</button>
+          <button class="newpostbutton" id="openModalBtn">New Post</button>
         </div>
         <a href="account.html">
-        <div class="profile">            
-            <img src="assets/profile.png" class="profile-image">
+          <div class="profile">
+            <img src="assets/profile.png" class="profile-image" />
             <p class="profile-text">Profile</p>
-        </div>
-    </a>
-    </div>
+          </div>
+        </a>
+      </div>
 
-    <div class="sidebarright">
+      <div class="sidebarright">
         <div class="searchbar">
-            <input type="text" id="search" placeholder="Search" />
+          <input type="text" id="search" placeholder="Search" />
         </div>
 
         <div class="PTO">
-            <h2>People to follow</h2>
-            <div class="person" id="p1">
-                <img src="assets/pfp1.png">
-                <p>maksieku</p>
-                <button class="follow">Follow</button>
-            </div>
-            <div class="person" id="p2">
-                <img src="assets/pfp2.png">
-                <p>Jessi_Flessi</p>
-                <button class="followed">Followed</button>
-            </div>
+          <h2>People to follow</h2>
+          <div class="person" id="p1">
+            <img src="assets/pfp1.png" />
+            <p>maksieku</p>
+            <button class="follow">Follow</button>
+          </div>
+          <div class="person" id="p2">
+            <img src="assets/pfp2.png" />
+            <p>Jessi_Flessi</p>
+            <button class="followed">Followed</button>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="mobile-sidebar">
+      <div class="mobile-sidebar">
         <div class="home-m">
-            <img src="assets/home.png" class="home-image">
+          <img src="assets/home.png" class="home-image" />
         </div>
 
         <div class="search-m">
-            <img src="assets/search.png" class="search-image">
+          <img src="assets/search.png" class="search-image" />
         </div>
 
         <a href="account.html">
-        <div class="profile-m">
-            <img src="assets/profile.png" class="profile-image">
-        </div>
+          <div class="profile-m">
+            <img src="assets/profile.png" class="profile-image" />
+          </div>
         </a>
-    </div>
+      </div>
 
-    <div class="for-you">
-        <img src="assets/logos/icon.png">
+      <div class="for-you">
+        <img src="assets/logos/icon.png" />
         <p>For you</p>
-    </div>
+      </div>
 
-    <div class="postbutton-m">
+      <div class="postbutton-m">
         <button class="newpostbutton-m" id="openModalBtn2">+</button>
-    </div>
+      </div>
 
-    <div class="posts">
+      <div class="posts">
         <div class="post">
-            <div class="user-info">
-                <img src="assets/pfp1.png" id="pfp">
-                <p id="username">Maksieku</p>
-            </div>
-            <div class="content">
-                <p id="content-text">Hey, ame11OS is here. link is in my discord</p>
-            </div>
-            <div class="buttons">
-                <img src="assets/like.png" class="button">
-                <img src="assets/comment.png" class="button">
-            </div>
+          <div class="user-info">
+            <img src="assets/pfp1.png" id="pfp" />
+            <p id="username">Maksieku</p>
+          </div>
+          <div class="content">
+            <p id="content-text">Hey, ame11OS is here. link is in my discord</p>
+          </div>
+          <div class="buttons">
+            <img src="assets/like.png" class="button" />
+            <img src="assets/comment.png" class="button" />
+          </div>
         </div>
         <div class="post">
-            <div class="user-info">
-                <img src="assets/pfp2.png" id="pfp">
-                <p id="username">Jessi Flessi</p>
-            </div>
-            <div class="content">
-                <p id="content-text">Ik Ben Dom, Jij ook?</p>
-            </div>
-            <div class="buttons">
-                <img src="assets/like.png" class="button">
-                <img src="assets/comment.png" class="button">
-            </div>
+          <div class="user-info">
+            <img src="assets/pfp2.png" id="pfp" />
+            <p id="username">Jessi Flessi</p>
+          </div>
+          <div class="content">
+            <p id="content-text">Ik Ben Dom, Jij ook?</p>
+          </div>
+          <div class="buttons">
+            <img src="assets/like.png" class="button" />
+            <img src="assets/comment.png" class="button" />
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<div id="modal" class="modal">
-    <div class="modal-content">
+    <div id="modal" class="modal">
+      <div class="modal-content">
         <div class="topcenter">
-            <img src="assets/pfp2.png" width="50px" height="50px" id="modalpfp">
-            <textarea type="text" id="postinput" placeholder="what do you want to share?" maxlength="1000"></textarea>
-            <span class="close">&times;</span>
+          <img src="assets/pfp2.png" width="50px" height="50px" id="modalpfp" />
+          <textarea
+            type="text"
+            id="postinput"
+            placeholder="what do you want to share?"
+            maxlength="1000"
+          ></textarea>
+          <span class="close">&times;</span>
         </div>
-      <br>
-    <div class="bottomcenter">
-        <div id="posticons">
-            <img src="assets/image.png" alt="image">
-            <img src="assets/gifbox.png" alt="image">
+        <br />
+        <div class="bottomcenter">
+          <div id="posticons">
+            <img src="assets/image.png" alt="image" />
+            <img src="assets/gifbox.png" alt="image" />
+          </div>
+          <button id="postbutton">Post</button>
         </div>
-        <button id="postbutton">Post</button>
+      </div>
     </div>
-    </div>
-  </div>
-
-</body>
-<script src="scripts/homepage.js"></script>
-<script src="scripts/postmodal.js"></script>
-<script src="scripts/loader.js"></script>
-<script src="scripts/removeextension.js"></script>
+  </body>
+  <script src="scripts/homepage.js"></script>
+  <script src="scripts/postmodal.js"></script>
+  <script src="scripts/loader.js"></script>
+  <script src="scripts/removeextension.js"></script>
 </html>

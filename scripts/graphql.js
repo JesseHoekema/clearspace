@@ -1,6 +1,6 @@
 class GraphQLError extends Error {
     constructor(errors) {
-        super('GraphQL Error');
+        super(errors[0].message)
         this.errors = errors;
     }
 }
