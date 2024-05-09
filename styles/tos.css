@@ -6,6 +6,7 @@ body {
     background-color: #2D3142;
     color: white;
 }
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -33,4 +34,134 @@ p {
 .banner a {
     color: grey;
     text-decoration: none;
+}
+
+.header {
+    width: 80vw;
+    height: 7vh;
+    background-color: #3d4155;
+    position: sticky;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 30px;
+    left: 8vw;
+}
+
+.header img {
+    height: 6vh;
+    width: auto;
+}
+
+.header .right {
+    display: flex;
+    margin-left: auto;
+}
+
+.header p {
+    font-size: 20px;
+    margin-right: 25px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.headeropen {
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    border-radius: 90px;
+    height: 7vh;
+    width: auto;
+    color: white;
+    font-size: 20px;
+    margin-left: auto;
+    padding: 18px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(45,49,66,0) 0%, rgba(239,131,84,1) 150%);
+}
+
+.section1 .landinglogo {
+    width: 35vw;
+}
+
+button {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.section1 .open {
+    border: 1px solid #EF8354;
+    background-color: rgba(79, 93, 117, 0.2);
+    border-radius: 90px;
+    height: 7vh;
+    width: auto;
+    color: white;
+    font-size: 20px;
+    margin-top: 10vh;
+    padding: 18px;
+}
+.small-logo {
+    display: none;
+}
+
+@media (orientation: portrait) { 
+    .logo {
+        display: none;
+    }
+    .small-logo {
+        display: block;
+    }
+    .header p {
+        font-size: 30px;
+        margin-right: 25px;
+        color: white;
+    }
+    .headeropen {
+        border: 1px solid #EF8354;
+        background-color: rgba(79, 93, 117, 0.2);
+        border-radius: 90px;
+        height: 4vh;
+        width: auto;
+        color: white;
+        font-size: 20px;
+        margin-left: auto;
+        padding: 18px;
+        margin-top: 5px;
+    }
+    .header {
+        width: 90vw;
+        height: 7vh;
+        background-color: #3d4155;
+        position: sticky;
+        top: 10px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 30px;
+        left: 8vw;
+    }
+    .header .right {
+        display: flex;
+        margin-left: auto;
+    }
+    #end  {
+        margin-right: 10vw;
+    }
 }
